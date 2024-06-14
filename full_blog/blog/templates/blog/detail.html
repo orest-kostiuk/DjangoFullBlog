@@ -1,0 +1,20 @@
+{% extends 'core/base.html' %}
+
+{% block title %}{{ post.title }}{% endblock %}
+
+{% block content %}
+    <h1>{{ post.title }}</h1>
+
+    <hr>
+
+    <form action="post">
+        {{ csrf_token }}
+        {{ form.as_p }}
+
+        <div class="field">
+            <div class="control">
+                <button class="button is-success">Submit comment</button>
+            </div>
+        </div>
+    </form>
+{% endblock %}
