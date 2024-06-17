@@ -12,12 +12,20 @@ class Category(models.Model):
      def __str__(self):
           return self.title
 class Post(models.Model):
+     ACTIVE = 'active'
+     DRAFT = 'draft'
+
+     CHOICES_STATUS = [
+          (ACTIVE, 'Active'),
+          (DRAFT, 'Draft'),
+     ]
      category = models.ForeignKey(Category, on_delete=models.CASCADE, related_name='posts')
      title = models.CharField(max_length=255)
      slug = models.SlugField(unique=True)
      intro = models.TextField()
      body = models.TextField()
      created_at = models.DateTimeField(auto_now_add=True)
+     status = models.CharField(max_length=10, choices=CHOICES_STATUS, default=ACTIVE)
 
      class Meta:
           ordering = ('-created_at',)

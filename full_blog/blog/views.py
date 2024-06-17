@@ -5,7 +5,7 @@ from .models import Post
 from .models import Category
 
 
-def detail(request, category_slug, slug):
+def detail(request, category_slug, slug, status=Post.ACTIVE):
   post = get_object_or_404(Post, slug=slug)
 
   if request.method == 'POST':
@@ -24,5 +24,6 @@ def detail(request, category_slug, slug):
 
 def category(request, slug):
   category = get_object_or_404(Category, slug=slug)
+  posts = category.posts.filter(status=Post.ACTIVE)
 
-  return render(request, 'blog/category.html', {'category': category})
+  return render(request, 'blog/category.html', {'category': category, 'posts': posts})
