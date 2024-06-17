@@ -26,7 +26,7 @@
                         <strong>Full blog</strong>
                     </a>
                     <span class="navbar-burger burger" data-target="navbarMenu">
-                <span></ span>
+                <span></span>
                             <span>
                         </span>
                         <span></span>
@@ -35,12 +35,15 @@
                 <div id="navbarMenu" class="navbar-menu">
                     <div class="navbar-end">
                         <div class=" navbar-item">
-                            <div class="control has-icons-left">
-                                <input class="input is-rounded" type="email" placeholder="Search">
-                                <span class="icon is-left">
-                <i class="fa fa-search"></i>
-                </span>
-                            </div>
+                            <form method="get" action="{% url 'search' %}">
+                                <div class="control has-icons-left">
+                                    <input name="query" class="input is-rounded" placeholder="Search">
+                                    <span class="icon is-left">
+                                        <i class="fa fa-search"></i>
+                                    </span>
+                                </div>
+                            </form>
+
                         </div>
                         <a href="/" class="navbar-item is-active is-size-5 has-text-weight-semibold">
                             Home </a>
