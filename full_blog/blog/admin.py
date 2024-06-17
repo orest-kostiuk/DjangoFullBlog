@@ -11,10 +11,12 @@ class PostAdmin(admin.ModelAdmin):
   list_display = ['title', 'slug', 'category', 'created_at']
   list_filter = ['category', 'created_at']
   inlines = [CommentItemInline]
+  prepopulated_fields = {'slug': ('title',)}
 
 class CategoryAdmin(admin.ModelAdmin):
   search_fields = ['title']
   list_display = ['title', 'slug']
+  prepopulated_fields = {'slug': ('title',)}
 
 class CommentAdmin(admin.ModelAdmin):
   search_fields = ['name', 'email', 'body']
