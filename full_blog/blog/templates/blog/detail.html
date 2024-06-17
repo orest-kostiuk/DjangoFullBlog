@@ -3,6 +3,13 @@
 {% block title %}{{ post.title }}{% endblock %}
 
 {% block content %}
+
+    {% if post.image %}
+        <figure class="image">
+            <img src="{{ post.image.url }}" alt="">
+        </figure>
+    {% endif %}
+
     <h1>{{ post.title }}</h1>
 
     <p>{{ post.body }}</p>
