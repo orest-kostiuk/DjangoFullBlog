@@ -5,7 +5,7 @@ from .models import Post
 def detail(request, slug):
   post = get_object_or_404(Post, slug=slug)
 
-  if request.method = 'POST':
+  if request.method == 'POST':
     form = CommentForm(request.POST)
     if form.is_valid():
       comment = form.save(commit=False)
